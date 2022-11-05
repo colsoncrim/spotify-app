@@ -36,7 +36,12 @@ app.get('/login', (req, res) => {
     const state = generateRandomString(16);
     res.cookie(stateKey, state);
 
-    const scope = 'user-read-private user-read-email';
+    const scope = [
+      'user-read-private',
+      'user-read-email',
+      'user-library-read',
+      'user-read-playback-position'
+    ].join(' ');
 
     const queryParams = queryString.stringify({
         client_id: CLIENT_ID,
