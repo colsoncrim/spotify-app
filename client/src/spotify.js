@@ -140,3 +140,7 @@ axios.defaults.headers['Content-Type'] = 'application/json';
  export const getSavedShows = (limit = 6) => {
   return axios.get(`/me/shows?limit=${limit}`);
  }
+
+ export const getRecentlyPlayed = (limit = 6, id = "6GA15nwXtqXi1AIZu5mSN9") => {
+  return axios.get(`/shows/${id}/episodes?limit=${limit}`);
+ }

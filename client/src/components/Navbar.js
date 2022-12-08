@@ -25,7 +25,7 @@ function Navbar() {
                     <Button variant="ghost" aria-label="Episodes">Episodes</Button>
                 </Link>
                 <Link>
-                    <Button variant="ghost" aria-label="FAQ's">FAQ's</Button>
+                    <Button variant="ghost" aria-label="Notes">Notes</Button>
                 </Link>
                 <Button onClick={logout} colorScheme="gray" variant="solid">Log Out</Button>
             </Flex>
@@ -75,7 +75,7 @@ function Navbar() {
                     <Button variant="ghost" aria-label="Episodes">Episodes</Button>
                 </Link>
                 <Link>
-                    <Button variant="ghost" aria-label="FAQ's">FAQ's</Button>
+                    <Button variant="ghost" aria-label="Notes">Notes</Button>
                 </Link>
                 <Button onClick={logout} colorScheme="gray" variant="solid">Log Out</Button>
             </Flex>

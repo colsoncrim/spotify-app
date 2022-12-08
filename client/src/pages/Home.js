@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
-import { getCurrentUserProfile, getSavedShows } from '../spotify';
-import { PodcastPreview } from '../components';
+import { getCurrentUserProfile, getSavedShows, getRecentlyPlayed } from '../spotify';
+import { PodcastPreview, RecentlyPlayed } from '../components';
 // import PodcastPreview from '../components/PodcastPreview';
 
 const Home = () => {
   const [profile, setProfile] = useState(null);
   const [savedShows, setSavedShows] = useState(null);
+  const [recentlyPlayed, setRecentlyPlayed] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -16,7 +17,11 @@ const Home = () => {
 
         const userSavedShows = await getSavedShows();
         setSavedShows(userSavedShows.data);
-        console.log(userSavedShows.data);
+        // console.log(userSavedShows.data);
+
+        const userRecentlyPlayed = await getRecentlyPlayed();
+        setRecentlyPlayed(userRecentlyPlayed.data);
+        console.log(userRecentlyPlayed.data);
 
       } catch(e) {
         console.error(e);
@@ -42,6 +47,12 @@ const Home = () => {
           <PodcastPreview shows={savedShows.items} />
         </main>
       )}
+
+      {recentlyPlayed && (
+        <main>
+          <RecentlyPlayed episodes={recentlyPlayed.items} />
+        </main>
+      )}      
     </>
   )
 };

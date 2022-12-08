@@ -15,7 +15,8 @@ import { useEffect, useState } from 'react';
 import { accessToken } from './spotify';
 // import PodcastPreview from './components/PodcastPreview';
 import Shows from './components/Shows';
-import Episodes from './components/Episodes';
+import IndividualEpisode from './components/IndividualEpisode';
+import IndividualShow from './components/IndividualShow';
 import Notes from './components/Notes';
 import { Login, Home } from './pages';
 
@@ -53,9 +54,9 @@ function App() {
             <Routes>
               <Route path="/shows" element={<Shows />}>
               </Route>
-              <Route path="/episodes" element={<Episodes />}>
+              <Route path="/shows/:id" element={<IndividualShow />}>
               </Route>
-              <Route path="/episodes/:id" element={<Episodes />}>
+              <Route path="/episodes/:id" element={<IndividualEpisode />}>
               </Route>
               <Route path="/notes" element={<Notes />}>
               </Route>
